@@ -1,0 +1,25 @@
+{
+  "intent_counts": {
+    "discovery": { "mentioned": 3, "total": 6 },
+    "comparison": { "mentioned": 1, "total": 6 },
+    "concern-solving": { "mentioned": 3, "total": 6 }
+  },
+  "provider_counts": {
+    "discovery": {
+      "chatgpt": { "mentioned": 2, "total": 2 },
+      "claude": { "mentioned": 0, "total": 2 },
+      "gemini": { "mentioned": 1, "total": 2 }
+    },
+    "comparison": {
+      "chatgpt": { "mentioned": 1, "total": 2 },
+      "claude": { "mentioned": 0, "total": 2 },
+      "gemini": { "mentioned": 0, "total": 2 }
+    },
+    "concern-solving": {
+      "chatgpt": { "mentioned": 1, "total": 2 },
+      "claude": { "mentioned": 1, "total": 2 },
+      "gemini": { "mentioned": 1, "total": 2 }
+    }
+  },
+  "priority_intent_id": "comparison"
+}

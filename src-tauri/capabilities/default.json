@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "Minimum permissions for the offline fixture desk main window.",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

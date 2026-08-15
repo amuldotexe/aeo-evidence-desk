@@ -1,0 +1,84 @@
+{
+  "scope_label": "Beauty > Hair care > L’Oréal Paris shampoo > en-US",
+  "market": "en-US",
+  "vertical": { "id": "beauty", "label": "Beauty and cosmetics" },
+  "intents": [
+    {
+      "id": "discovery",
+      "label": "Discovery",
+      "intent_type": "product discovery",
+      "action_template": "Investigate a concise colour-treated-hair selection guide that clarifies when L’Oréal Paris shampoo fits the need."
+    },
+    {
+      "id": "comparison",
+      "label": "Comparison",
+      "intent_type": "product comparison",
+      "action_template": "Investigate comparison content that explains L’Oréal Paris shampoo alternatives for colour-treated hair without claiming a visibility outcome."
+    },
+    {
+      "id": "concern-solving",
+      "label": "Concern solving",
+      "intent_type": "hair concern solving",
+      "action_template": "Investigate dry- and frizz-prone hair content that explains the role of L’Oréal Paris shampoo in a routine."
+    }
+  ],
+  "prompts": [
+    { "id": "discovery-01", "intent_id": "discovery", "prompt_text": "What shampoo should I consider for colour-treated hair?", "market": "en-US" },
+    { "id": "discovery-02", "intent_id": "discovery", "prompt_text": "How do I choose a shampoo that protects colour?", "market": "en-US" },
+    { "id": "comparison-01", "intent_id": "comparison", "prompt_text": "How does shampoo for colour-treated hair compare across common options?", "market": "en-US" },
+    { "id": "comparison-02", "intent_id": "comparison", "prompt_text": "What should I compare before choosing a colour-care shampoo?", "market": "en-US" },
+    { "id": "concern-solving-01", "intent_id": "concern-solving", "prompt_text": "What can help with dry, colour-treated hair?", "market": "en-US" },
+    { "id": "concern-solving-02", "intent_id": "concern-solving", "prompt_text": "How can I reduce frizz after colouring my hair?", "market": "en-US" }
+  ],
+  "providers": [
+    { "id": "chatgpt", "label": "ChatGPT" },
+    { "id": "claude", "label": "Claude" },
+    { "id": "gemini", "label": "Gemini" }
+  ],
+  "brand_aliases": [
+    { "id": "loreal-paris-accented", "alias_text": "L’Oréal Paris" },
+    { "id": "loreal-paris-ascii", "alias_text": "L'Oreal Paris" },
+    { "id": "everpure", "alias_text": "EverPure" },
+    { "id": "elvive", "alias_text": "Elvive" }
+  ],
+  "observations": [
+    { "id": "discovery-01-chatgpt", "prompt_id": "discovery-01", "provider_id": "chatgpt", "answer_text": "For colour-treated hair, L’Oréal Paris EverPure Moisture Shampoo is one fictional example to compare with other sulfate-free options.", "source_type": "authored_demo_fixture" },
+    { "id": "discovery-01-claude", "prompt_id": "discovery-01", "provider_id": "claude", "answer_text": "Start by looking for a gentle cleanser and choose according to your hair texture and routine.", "source_type": "authored_demo_fixture" },
+    { "id": "discovery-01-gemini", "prompt_id": "discovery-01", "provider_id": "gemini", "answer_text": "A colour-care routine can include L'Oreal Paris EverPure as one option alongside a conditioner chosen for your needs.", "source_type": "authored_demo_fixture" },
+    { "id": "discovery-02-chatgpt", "prompt_id": "discovery-02", "provider_id": "chatgpt", "answer_text": "L’Oréal Paris Elvive Color Vibrancy Shampoo is an example of a product line a shopper could investigate for colour-care claims.", "source_type": "authored_demo_fixture" },
+    { "id": "discovery-02-claude", "prompt_id": "discovery-02", "provider_id": "claude", "answer_text": "Compare the cleanser, conditioning ingredients, and how often you wash before choosing a product.", "source_type": "authored_demo_fixture" },
+    { "id": "discovery-02-gemini", "prompt_id": "discovery-02", "provider_id": "gemini", "answer_text": "Choose a shampoo made for colour-treated hair and pair it with heat-protection habits.", "source_type": "authored_demo_fixture" },
+    { "id": "comparison-01-chatgpt", "prompt_id": "comparison-01", "provider_id": "chatgpt", "answer_text": "A comparison might include L’Oréal Paris EverPure alongside other colour-care shampoos, checking cleansing preferences and ingredient sensitivities.", "source_type": "authored_demo_fixture" },
+    { "id": "comparison-01-claude", "prompt_id": "comparison-01", "provider_id": "claude", "answer_text": "Compare the type of cleanser, fragrance preference, and the needs of your hair rather than relying on one generic ranking.", "source_type": "authored_demo_fixture" },
+    { "id": "comparison-01-gemini", "prompt_id": "comparison-01", "provider_id": "gemini", "answer_text": "Look at colour-care positioning, your hair texture, and the rest of your routine when comparing products.", "source_type": "authored_demo_fixture" },
+    { "id": "comparison-02-chatgpt", "prompt_id": "comparison-02", "provider_id": "chatgpt", "answer_text": "A useful comparison considers hair goals, wash frequency, and which formulation feels comfortable for regular use.", "source_type": "authored_demo_fixture" },
+    { "id": "comparison-02-claude", "prompt_id": "comparison-02", "provider_id": "claude", "answer_text": "Review the product information and test cautiously if you have known sensitivities.", "source_type": "authored_demo_fixture" },
+    { "id": "comparison-02-gemini", "prompt_id": "comparison-02", "provider_id": "gemini", "answer_text": "Focus on routine compatibility and the condition of your hair when weighing shampoo options.", "source_type": "authored_demo_fixture" },
+    { "id": "concern-solving-01-chatgpt", "prompt_id": "concern-solving-01", "provider_id": "chatgpt", "answer_text": "For dry colour-treated hair, Elvive is one product label a shopper could investigate alongside gentler washing and conditioning habits.", "source_type": "authored_demo_fixture" },
+    { "id": "concern-solving-01-claude", "prompt_id": "concern-solving-01", "provider_id": "claude", "answer_text": "Try reducing heat exposure, using a conditioner, and choosing a cleanser that does not leave hair feeling stripped.", "source_type": "authored_demo_fixture" },
+    { "id": "concern-solving-01-gemini", "prompt_id": "concern-solving-01", "provider_id": "gemini", "answer_text": "Dryness can benefit from a gentler wash schedule and a conditioner suited to your hair type.", "source_type": "authored_demo_fixture" },
+    { "id": "concern-solving-02-chatgpt", "prompt_id": "concern-solving-02", "provider_id": "chatgpt", "answer_text": "Frizz management can include careful heat styling and a routine that matches your hair texture.", "source_type": "authored_demo_fixture" },
+    { "id": "concern-solving-02-claude", "prompt_id": "concern-solving-02", "provider_id": "claude", "answer_text": "L'Oreal Paris colour-care shampoo is one option to research, while routine and climate can also affect frizz.", "source_type": "authored_demo_fixture" },
+    { "id": "concern-solving-02-gemini", "prompt_id": "concern-solving-02", "provider_id": "gemini", "answer_text": "EverPure may be a product label to investigate as part of a wider frizz-management routine.", "source_type": "authored_demo_fixture" }
+  ],
+  "expected_scores": [
+    { "observation_id": "discovery-01-chatgpt", "brand_mentioned": true },
+    { "observation_id": "discovery-01-claude", "brand_mentioned": false },
+    { "observation_id": "discovery-01-gemini", "brand_mentioned": true },
+    { "observation_id": "discovery-02-chatgpt", "brand_mentioned": true },
+    { "observation_id": "discovery-02-claude", "brand_mentioned": false },
+    { "observation_id": "discovery-02-gemini", "brand_mentioned": false },
+    { "observation_id": "comparison-01-chatgpt", "brand_mentioned": true },
+    { "observation_id": "comparison-01-claude", "brand_mentioned": false },
+    { "observation_id": "comparison-01-gemini", "brand_mentioned": false },
+    { "observation_id": "comparison-02-chatgpt", "brand_mentioned": false },
+    { "observation_id": "comparison-02-claude", "brand_mentioned": false },
+    { "observation_id": "comparison-02-gemini", "brand_mentioned": false },
+    { "observation_id": "concern-solving-01-chatgpt", "brand_mentioned": true },
+    { "observation_id": "concern-solving-01-claude", "brand_mentioned": false },
+    { "observation_id": "concern-solving-01-gemini", "brand_mentioned": false },
+    { "observation_id": "concern-solving-02-chatgpt", "brand_mentioned": false },
+    { "observation_id": "concern-solving-02-claude", "brand_mentioned": true },
+    { "observation_id": "concern-solving-02-gemini", "brand_mentioned": true }
+  ]
+}

@@ -920,3 +920,66 @@ GitHub implementation precedents:
 - [AutoGEO](https://github.com/cxcscmu/AutoGEO)
 - [AEO Radar](https://github.com/hellowalt/aeo-radar)
 - [LLM Brand Visibility Dataset](https://github.com/lillybronx/LLM-brand-visibility)
+
+---
+
+## Shreyas Doshi product-judgment lens
+
+This is an informed inference, not a claim about any reviewer’s private intent. It applies Shreyas Doshi’s public emphasis on defining the user need, comparing alternatives and trade-offs, identifying unknowns, and making them knowable to this assignment.
+
+### Governing thought
+
+The assignment is not primarily testing whether the candidate can build a dashboard. It is testing whether they can turn the vague idea of “AI brand presence” into a specific customer decision, a trustworthy measurement system, and a sharply scoped product.
+
+The central question is therefore not, “Can we calculate a L’Oréal visibility score?” It is:
+
+> Can a L’Oréal content or brand manager identify which high-value customer questions are weak, inspect the supporting evidence, and choose the next action with appropriate confidence?
+
+### What the response is likely to be evaluated on
+
+| Assessment dimension | Evidence of strong product judgment |
+| --- | --- |
+| Problem framing | Names a specific user and decision rather than repeating that AI search is growing. |
+| Customer insight | Organizes prompts around meaningful customer intents such as discovery, comparison, concern solving, and purchase. |
+| Scope judgment | Chooses a narrow, useful wedge—for example, US-English L’Oréal Paris hair care—instead of claiming universal coverage. |
+| Measurement rigor | Defines presence explicitly: mention, recommendation, rank position, citation, or competitor preference; shows denominators and raw evidence. |
+| Actionability | Produces an evidence-linked, prioritized hypothesis rather than generic advice such as “improve SEO.” |
+| Learning design | States what is unknown, uses repeated prompt families and calibration, and explains how later reruns could test an intervention. |
+| System design | Separates reusable vertical taxonomy and engine behavior from the L’Oréal client overlay. |
+| Intellectual honesty | Makes API-versus-consumer-product differences, volatility, sample bias, and causal limits visible. |
+| Execution craft | Delivers one polished end-to-end decision loop rather than a broad set of disconnected features. |
+
+### The product decision the prototype should serve
+
+Frame the demo around a real decision:
+
+> “A L’Oréal content manager can fund two improvements this month. Which intent gaps should they address first, and why?”
+
+The compelling demo path is then:
+
+```text
+Intent cohort
+    -> observed provider answers
+    -> transparent presence metric
+    -> evidence and diagnosis
+    -> prioritized action hypothesis
+    -> defined re-measurement plan
+```
+
+For example, the prototype should be able to say: “Prioritize colour-treated-hair comparison content because L’Oréal was absent from 8 of 12 observed answers for this intent family.” It must also expose the exact prompts, answers, models, locale, run time, and score definition behind that statement.
+
+### What would weaken the hiring signal
+
+- a visually polished but decision-free dashboard;
+- a single opaque “visibility” score;
+- dozens of uncurated prompts without an intent theory;
+- generic recommendations with no evidence chain;
+- claims that content publication will directly change model recommendations; or
+- production-scale architecture that obscures the two-day learning objective.
+
+The intended conclusion is: **the candidate can turn ambiguous AI behavior into an inspectable customer decision without confusing a polished prototype for proven business truth.**
+
+### Public-reference basis
+
+- [Shreyas Doshi’s questions for evaluating product decisions](https://x.com/shreyas/status/1290703709270228993): user need, importance, expected and unexpected solutions, trade-offs, unknowns, and how to make them known.
+- [“Get to the Core of the Thing”](https://www.techtwitter.com/articles/get-to-the-core-of-the-thing): a customer-specific capability and real differentiation matter more than abstract strategy language.
