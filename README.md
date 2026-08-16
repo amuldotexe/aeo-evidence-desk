@@ -121,3 +121,4 @@ Possible production backlog:
 ## Additional documentation
 - [Executable prototype specification](docs/D03-minimal-fixture-prd-specs.md)
   — exact fixture contract, requirements, and test matrix.
+- Skills used can be found at https://github.com/that-in-rust/agent-room-of-requirements 
