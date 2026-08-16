@@ -113,17 +113,6 @@ The bigger issue is: can we find something which is actionable for the decision-
 
 A lot of challenges on the engineering side will be emergent in nature, based on the context of how we are allowed to source this data, both in terms of economic feasibility and the technical constraints of the decision maker. 
 
-
+## Additional documentation
 - [Executable prototype specification](docs/D03-minimal-fixture-prd-specs.md)
   — exact fixture contract, requirements, and test matrix.
-- [Product narrative and screenshots](Narrative/v001/README.md) — the shipped
-  screen-by-screen review flow.
-
-## Status
-
-This repository is an educational reference implementation and assignment
-artifact. It is a working desktop application, but it is not presented as a
-production AEO platform.
-
-The goal is simple: **make one answer-engine content decision more traceable,
-not make an unearned promise about changing AI recommendations.**
