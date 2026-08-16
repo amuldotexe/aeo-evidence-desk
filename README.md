@@ -45,7 +45,7 @@ It contains:
 
 This is just sample data
 
-## Architecture: a small proof today, an engine tomorrow
+## Architecture: figure out what is useful first, we can engineer it for efficiency and scalability later
 
 A minimalist approach - Tauri app starting from the side of "what a decision maker wants to see" and deliberately light on the production architecture - which will depend heavily on the way we source that data in context of the decision maker
 
@@ -105,19 +105,15 @@ npm --prefix ui run build
 
 ## The production path
 
-The key hypothesis is that if the decision maker finds this kind of insight useful then we can work backwards towards sourcing all of this data from a relevant prompt evidence data base which could be any publicly exposed SaaS tools or creating our own sampling prompt response data set by hitting different APIs. The bigger question here is not as much about how will we engineer this which will definitely include LLM APIs because for LLM as Judge use case. The bigger issue is: can we find something which is actionable for the decision-maker and gives them confidence that their content is improving in the right direction?
+The key hypothesis is that if the decision maker finds this kind of insight useful then we can work backwards towards sourcing all of this data from a relevant prompt evidence database which could be any publicly exposed SaaS tools or creating our own sampling prompt response data set by hitting different APIs. 
+
+The bigger question here is not as much about how will we engineer this, which will definitely include LLM APIs because for LLM as Judge use case. 
+
+The bigger issue is: can we find something which is actionable for the decision-maker and gives them confidence that their content is improving in the right direction?
 
 A lot of challenges on the engineering side will be emergent in nature, based on the context of how we are allowed to source this data, both in terms of economic feasibility and the technical constraints of the decision maker. 
 
 
-## Repository guide
-
-- [FAQ](FAQ.md) — plain-English explanation of the client, decision, fixtures,
-  LLM judges, limits, and production path.
-- [Original assignment brief](docs/D01-problem-statement.md) — the broader
-  vertical, client, measurement, validation, and architecture challenge.
-- [Research and production design](docs/D02-initial-analysis-20260812.md) —
-  taxonomy, provider adapters, scalable schema, validation, and limitations.
 - [Executable prototype specification](docs/D03-minimal-fixture-prd-specs.md)
   — exact fixture contract, requirements, and test matrix.
 - [Product narrative and screenshots](Narrative/v001/README.md) — the shipped
