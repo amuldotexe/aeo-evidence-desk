@@ -91,16 +91,72 @@ This project instead starts with the smaller, harder promise:
 The result is a compact reference implementation for teams exploring the
 evidence and product-design layer of answer-engine measurement.
 
-## Architecture
+## Architecture: a small proof today, an engine tomorrow
+
+The shipped app implements the final review loop with frozen inputs. The
+production design keeps that review loop, but adds the data and evaluation
+layers needed to make live measurements trustworthy.
 
 ```text
-Tauri desktop window
-    -> typed commands
-    -> Rust fixture core
-        -> fixture validation
-        -> deterministic presence metrics
-        -> priority selection
-        -> evidence lookup
+IMPLEMENTED IN v0.0.1: offline fixture desk
+
++--------------------+
+| Desktop reviewer    |
+| dashboard + drill   |
++--------------------+
+          |
+          v
++--------------------+
+| Typed Tauri         |
+| commands            |
++--------------------+
+          |
+          v
++--------------------+
+| Rust fixture core   |
+| validate, score,    |
+| prioritise, explain |
++--------------------+
+          |
+          v
++--------------------+
+| Embedded fixtures   |
+| prompts + answers   |
++--------------------+
+
+PROPOSED PRODUCTION ENGINE: not implemented in v0.0.1
+
++------------------------------------------------+
+| Client facts, owned pages, approved claims     |
++------------------------------------------------+
+                        |
+                        v
++------------------------------------------------+
+| Versioned vertical taxonomy + client overlay   |
++------------------------------------------------+
+                        |
+                        v
++------------------------------------------------+
+| Prompt compiler + provider adapters            |
++------------------------------------------------+
+                        |
+                        v
++------------------------------------------------+
+| Evidence ledger: runs, answers, citations,     |
+| timestamps, configuration, and hashes          |
++------------------------------------------------+
+                        |
+                        v
++------------------------------------------------+
+| Evaluation: rules, LLM judges, human gold set, |
+| uncertainty, and metric checks                 |
++------------------------------------------------+
+                        |
+                        v
++------------------------------------------------+
+| Decision desk: drill-down, approved action,    |
+| and a later measurement rerun                  |
++------------------------------------------------+
 ```
 
 The frontend renders typed dashboard and evidence data. The Rust core owns
