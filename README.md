@@ -14,8 +14,8 @@ What people typically ask a chat app:
 A brand team needs to know
 
 1. where Brand appears in those answers, as in at least you should be visible or in the radar of the chat apps. 
-2. whether your inclusion is in positive or negative context, and how are you being placed as compared to your competitor
-3. and this should help you figure out what to investigate next, and the decision will be how to improve your content game so that 
+2. how are you being placed as compared to your competitor
+3. and know what to investigate next, and the decision will be how to improve your content game
 
 
 AEO Evidence Desk helps you narrow down on that answer to trace what should be the next step in your content journey to become positively visible to your consumers. 
@@ -105,13 +105,19 @@ npm --prefix ui run build
 
 ## The production path
 
-The key hypothesis is that if the decision maker finds this kind of insight useful then we can work backwards towards sourcing all of this data from a relevant prompt evidence database which could be any publicly exposed SaaS tools or creating our own sampling prompt response data set by hitting different APIs. 
+The key hypothesis is that, if a decision-maker finds this kind of evidence useful, we can work backwards towards a trustworthy prompt-evidence data source: a licensed/publicly available provider, or a repeatable prompt-sampling system using the relevant APIs where permitted.
 
-The bigger question here is not as much about how will we engineer this, which will definitely include LLM APIs because for LLM as Judge use case. 
+The important question is not merely whether this can be engineered. It is whether the result gives a content decision-maker enough confidence to investigate the right issue and improve content in the right direction.
 
-The bigger issue is: can we find something which is actionable for the decision-maker and gives them confidence that their content is improving in the right direction?
+Possible production backlog:
 
-A lot of challenges on the engineering side will be emergent in nature, based on the context of how we are allowed to source this data, both in terms of economic feasibility and the technical constraints of the decision maker. 
+- **Evidence provenance and run history:** retain the prompt, provider, model/version where available, collection time, source, and raw response snapshot for every observation.
+- **Context labels:** add an explicit, calibrated label such as `recommended`, `neutral`, `cautioned`, or `not mentioned`. In an early release these would be reviewer-authored labels; an LLM-as-judge workflow would need human calibration and disagreement checks before it could be trusted.
+- **Named competitor comparison:** record the competitors mentioned in each answer and their context, so the decision-maker can compare the brand's inclusion with named alternatives for the same prompt and intent cohort.
+- **Repeatable sampling:** rerun a stable prompt set across providers and dates, then show change over time rather than treating a single answer as a durable market signal.
+- **Decision validation:** connect each proposed action to a falsifiable content-investigation hypothesis and, where practical, test it through a controlled content change. Observed co-occurrence is not proof of causation.
+
+The feasibility, cost, provider terms, and privacy constraints of collection are product decisions to resolve before this becomes a live measurement system.
 
 ## Additional documentation
 - [Executable prototype specification](docs/D03-minimal-fixture-prd-specs.md)
