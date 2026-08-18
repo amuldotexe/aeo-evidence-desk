@@ -31,7 +31,7 @@ fi
 
 readonly repository_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly tauri_directory="$repository_root/src-tauri"
-readonly bundle_directory="$tauri_directory/target/$target/release/bundle"
+readonly bundle_directory="$repository_root/target/$target/release/bundle"
 readonly artifact_directory="$repository_root/artifacts/v$release_version"
 readonly artifact_name="AEO-Fixture-Evidence-Desk-v$release_version-macos-$architecture_label.dmg"
 readonly artifact_path="$artifact_directory/$artifact_name"
@@ -48,23 +48,51 @@ fi
 )
 
 shopt -s nullglob
-app_candidates=("$bundle_directory"/macos/*.app)
 dmg_candidates=("$bundle_directory"/dmg/*.dmg)
 shopt -u nullglob
 
-if [[ "${#app_candidates[@]}" -ne 1 || "${#dmg_candidates[@]}" -ne 1 ]]; then
-  echo "Expected exactly one app and one DMG for $target." >&2
+if [[ "${#dmg_candidates[@]}" -ne 1 ]]; then
+  echo "Expected exactly one DMG for $target." >&2
+  exit 70
+fi
+
+readonly dmg_path="${dmg_candidates[0]}"
+readonly mount_directory="$(mktemp -d "${TMPDIR:-/tmp}/aeo-dmg-verification.XXXXXX")"
+mounted_dmg=false
+
+cleanup_mounted_dmg() {
+  if [[ "$mounted_dmg" == true ]]; then
+    hdiutil detach "$mount_directory" -quiet || true
+  fi
+  rmdir "$mount_directory" || true
+}
+
+trap cleanup_mounted_dmg EXIT
+
+hdiutil attach -nobrowse -readonly -mountpoint "$mount_directory" "$dmg_path" >/dev/null
+mounted_dmg=true
+
+shopt -s nullglob
+app_candidates=("$mount_directory"/*.app)
+shopt -u nullglob
+
+if [[ "${#app_candidates[@]}" -ne 1 ]]; then
+  echo "Expected exactly one application inside the DMG for $target." >&2
   exit 70
 fi
 
 readonly application_path="${app_candidates[0]}"
-readonly dmg_path="${dmg_candidates[0]}"
 
 codesign --verify --deep --strict --verbose=4 "$application_path"
-if ! codesign -d --verbose=4 "$application_path" 2>&1 | grep -Fq -- "Runtime Version="; then
+codesign_metadata="$(codesign -d --verbose=4 "$application_path" 2>&1)"
+if ! grep -Fq -- "Runtime Version=" <<<"$codesign_metadata"; then
   echo "The built application does not have hardened runtime enabled." >&2
   exit 70
 fi
+
+hdiutil detach "$mount_directory" -quiet
+mounted_dmg=false
+rmdir "$mount_directory"
 
 xcrun notarytool submit "$dmg_path" --keychain-profile "$profile_name" --wait
 xcrun stapler staple "$dmg_path"
