@@ -45,6 +45,21 @@ It contains:
 
 This is just sample data
 
+## Download macOS v0.0.2
+
+The v0.0.2 release provides two direct-download DMGs. Both contain the same
+offline fixture demonstrator; choose the one that matches the Mac processor:
+
+- **Apple Silicon** (`M1`, `M2`, `M3`, or newer):
+  `AEO-Fixture-Evidence-Desk-v0.0.2-macos-arm64.dmg`
+- **Intel**: `AEO-Fixture-Evidence-Desk-v0.0.2-macos-x64.dmg`
+
+Open the selected DMG, drag **AEO Fixture Evidence Desk** into
+**Applications**, then open it normally. The release is published only after
+the DMG and enclosed application have passed Developer ID signing,
+Apple-notarization, and Gatekeeper checks. It does not require a recipient to
+recompile the repository or bypass macOS security prompts.
+
 ## Architecture: figure out what is useful first, we can engineer it for efficiency and scalability later
 
 A minimalist approach - Tauri app starting from the side of "what a decision maker wants to see" and deliberately light on the production architecture - which will depend heavily on the way we source that data in context of the decision maker
@@ -121,4 +136,6 @@ Possible production backlog:
 ## Additional documentation
 - [Executable prototype specification](docs/D03-minimal-fixture-prd-specs.md)
   — exact fixture contract, requirements, and test matrix.
-- Skills used can be found at https://github.com/that-in-rust/agent-room-of-requirements 
+- [v0.0.2 release narrative](Narrative/v002/README.md)
+  — macOS direct-distribution scope and install path.
+- Skills used can be found at https://github.com/that-in-rust/agent-room-of-requirements
