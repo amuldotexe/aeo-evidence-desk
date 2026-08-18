@@ -64,7 +64,9 @@ cleanup_mounted_dmg() {
   if [[ "$mounted_dmg" == true ]]; then
     hdiutil detach "$mount_directory" -quiet || true
   fi
-  rmdir "$mount_directory" || true
+  if [[ -d "$mount_directory" ]]; then
+    rmdir "$mount_directory" || true
+  fi
 }
 
 trap cleanup_mounted_dmg EXIT
@@ -104,6 +106,6 @@ cp "$dmg_path" "$artifact_path"
 
 xcrun stapler validate "$artifact_path"
 spctl --assess --type open --context context:primary-signature --verbose=4 "$artifact_path"
-shasum -a 256 "$artifact_path"
+LC_ALL=C shasum -a 256 "$artifact_path"
 
 printf "Verified release asset: %s\n" "$artifact_path"
